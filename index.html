@@ -14,11 +14,11 @@
         }
         body {
             font-family: 'Inter', 'Cairo', sans-serif;
-            background-color: #0A0A0A;
-            color: #FFFFFF;
+            background-color: #F5F0EB;
+            color: #1A1A1A;
             overflow-x: hidden;
         }
-        /* شريط التنقل */
+        /* شريط التنقل الشفاف */
         .navbar {
             position: fixed;
             top: 0;
@@ -26,12 +26,12 @@
             width: 100%;
             z-index: 1000;
             padding: 15px 40px;
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(255, 248, 240, 0.92);
             backdrop-filter: blur(12px);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid rgba(212, 160, 23, 0.3);
+            border-bottom: 1px solid rgba(180, 140, 100, 0.15);
             transition: 0.3s;
         }
         .logo {
@@ -47,7 +47,7 @@
         .logo span {
             font-size: 1.5rem;
             font-weight: 800;
-            color: #D4A017;
+            color: #8B6B4A;
             letter-spacing: -0.5px;
         }
         .nav-links {
@@ -56,7 +56,7 @@
             list-style: none;
         }
         .nav-links a {
-            color: #FFFFFF;
+            color: #3A2A1A;
             text-decoration: none;
             font-weight: 500;
             font-size: 0.95rem;
@@ -65,19 +65,19 @@
             border-bottom: 2px solid transparent;
         }
         .nav-links a:hover {
-            color: #D4A017;
-            border-bottom-color: #D4A017;
+            color: #B8860B;
+            border-bottom-color: #B8860B;
         }
         .menu-btn {
             display: none;
             font-size: 1.8rem;
-            color: #D4A017;
+            color: #8B6B4A;
             cursor: pointer;
         }
-        /* القسم الرئيسي (الهيرو) */
+        /* القسم الرئيسي - هيرو مع الصورة البطولية */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url('https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/photo-1502998070258-dc1338445ac2.jpeg');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.15)), url('https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/photo-1502998070258-dc1338445ac2.jpeg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -90,17 +90,16 @@
             font-size: 3.5rem;
             font-weight: 900;
             margin-bottom: 15px;
+            color: #FFFFFF;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             animation: fadeUp 1s ease;
         }
         .hero h1 span {
-            background: linear-gradient(95deg, #D4A017, #FFC107);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #FFD700;
         }
         .hero p {
             font-size: 1.2rem;
-            color: #CFE6C5;
+            color: #F5F0EB;
             margin-bottom: 30px;
             animation: fadeUp 1.2s ease;
         }
@@ -110,7 +109,7 @@
             padding: 14px 40px;
             border-radius: 50px;
             font-weight: 700;
-            color: #0A0A0A;
+            color: #1A1A1A;
             cursor: pointer;
             transition: 0.2s;
             display: inline-block;
@@ -139,43 +138,90 @@
             font-weight: 800;
             text-align: center;
             margin-bottom: 50px;
+            color: #3A2A1A;
         }
         .section-title span {
-            background: linear-gradient(95deg, #D4A017, #FFC107);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: #B8860B;
         }
         .section-title::after {
             content: '';
             display: block;
             width: 60px;
             height: 3px;
-            background: #D4A017;
+            background: #B8860B;
             margin: 10px auto 0;
             border-radius: 5px;
         }
-        /* بطاقات القائمة */
+        /* خلفية فاتحة للقائمة */
+        #menu {
+            background: #FCF8F2;
+        }
+        /* بطاقات القائمة - تصميم أنيق */
         .menu-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         .menu-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 30px;
+            background: #FFFFFF;
+            border-radius: 24px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            border: 1px solid rgba(180, 140, 100, 0.1);
+            position: relative;
         }
         .menu-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
             border-color: #D4A017;
         }
-        .menu-card img {
-            width: 100%;
+        .menu-card .image-wrapper {
+            position: relative;
+            overflow: hidden;
             height: 220px;
+        }
+        .menu-card .image-wrapper img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .menu-card:hover .image-wrapper img {
+            transform: scale(1.05);
+        }
+        /* شارة "اطلب الآن" تظهر عند التمرير */
+        .order-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(4px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .menu-card:hover .order-overlay {
+            opacity: 1;
+        }
+        .order-overlay .btn-order {
+            background: #D4A017;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #1A1A1A;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 1rem;
+        }
+        .order-overlay .btn-order:hover {
+            transform: scale(1.05);
+            background: #FFC107;
         }
         .menu-card .info {
             padding: 20px;
@@ -184,46 +230,52 @@
         .menu-card .info h4 {
             font-size: 1.2rem;
             margin-bottom: 8px;
-            color: #D4A017;
+            color: #3A2A1A;
         }
         .menu-card .info p {
-            color: #CFE6C5;
+            color: #6A5A4A;
             font-size: 0.9rem;
         }
-        /* اتصل بنا */
-        .contact-grid {
+        .menu-card .info .price {
+            display: inline-block;
+            margin-top: 10px;
+            color: #B8860B;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        /* عدادات رقمية تفاعلية (فكرة مستوحاة من مواقع عالمية) */
+        .stats-section {
+            background: #F5F0EB;
+            padding: 60px 40px;
+        }
+        .stats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 14px 20px;
-            margin-bottom: 15px;
-            border-radius: 60px;
-            border: none;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            font-size: 1rem;
-        }
-        .contact-form textarea {
+        .stat-item {
+            background: #FFFFFF;
             border-radius: 30px;
-            min-height: 120px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
         }
-        .contact-info p {
-            margin: 15px 0;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            color: #CFE6C5;
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #B8860B;
         }
-        .contact-info i {
-            color: #D4A017;
-            width: 25px;
+        .stat-label {
+            color: #6A5A4A;
+            font-weight: 500;
+            margin-top: 5px;
         }
+        /* شريط تنقل سفلي مع أيقونات التواصل */
         .footer {
-            background: #051005;
-            padding: 40px;
+            background: #1A1A1A;
+            padding: 40px 20px;
             text-align: center;
             color: #CFE6C5;
             border-top: 1px solid rgba(212, 160, 23, 0.2);
@@ -242,6 +294,16 @@
         .social-links a:hover {
             color: #D4A017;
         }
+        /* أيقونات متحركة (فكرة إضافية) */
+        .floating-icon {
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
         @media (max-width: 850px) {
             .nav-links {
                 display: none;
@@ -258,9 +320,6 @@
             }
             .hero h1 {
                 font-size: 2.2rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -290,63 +349,97 @@
         </div>
     </section>
 
-    <!-- قسم القائمة -->
-    <section id="menu" style="background: #0D1A0D;">
+    <!-- عدادات رقمية تفاعلية -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item"><div class="stat-number" id="stat1">0</div><div class="stat-label">زبون سعيد</div></div>
+            <div class="stat-item"><div class="stat-number" id="stat2">0</div><div class="stat-label">طبق مميز</div></div>
+            <div class="stat-item"><div class="stat-number" id="stat3">0</div><div class="stat-label">سنة من التميز</div></div>
+            <div class="stat-item"><div class="stat-number" id="stat4">0</div><div class="stat-label">جائزة حصلنا عليها</div></div>
+        </div>
+    </section>
+
+    <!-- قسم القائمة (بخلفية فاتحة) -->
+    <section id="menu">
         <div class="container">
             <h2 class="section-title">قائمة <span>الطعام</span></h2>
             <div class="menu-grid">
 
                 <!-- بطاقة التحلية 1 -->
                 <div class="menu-card">
-                    <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773830733.jpg" alt="تحلية">
+                    <div class="image-wrapper">
+                        <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773830733.jpg" alt="تحلية الفستق">
+                        <div class="order-overlay"><button class="btn-order"><i class="fas fa-shopping-bag"></i> اطلب الآن</button></div>
+                    </div>
                     <div class="info">
                         <h4>🍰 تحلية الفستق</h4>
                         <p>حلى فاخر بطبقات من الكريمة والفستق المطحون</p>
+                        <span class="price">1200 دج</span>
                     </div>
                 </div>
 
                 <!-- بطاقة التحلية 2 -->
                 <div class="menu-card">
-                    <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773656835.jpg" alt="تحلية">
+                    <div class="image-wrapper">
+                        <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773656835.jpg" alt="تحلية الشوكولاتة">
+                        <div class="order-overlay"><button class="btn-order"><i class="fas fa-shopping-bag"></i> اطلب الآن</button></div>
+                    </div>
                     <div class="info">
                         <h4>🍫 تحلية الشوكولاتة</h4>
                         <p>موس الشوكولاتة الداكنة مع صلصة الكراميل</p>
+                        <span class="price">1400 دج</span>
                     </div>
                 </div>
 
                 <!-- بطاقة البيتزا -->
                 <div class="menu-card">
-                    <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773624989.jpg" alt="بيتزا">
+                    <div class="image-wrapper">
+                        <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773624989.jpg" alt="بيتزا">
+                        <div class="order-overlay"><button class="btn-order"><i class="fas fa-shopping-bag"></i> اطلب الآن</button></div>
+                    </div>
                     <div class="info">
                         <h4>🍕 بيتزا مارغريتا</h4>
                         <p>بيتزا تقليدية بصلصة الطماطم والجبن والريحان الطازج</p>
+                        <span class="price">1600 دج</span>
                     </div>
                 </div>
 
                 <!-- بطاقة الغراتان -->
                 <div class="menu-card">
-                    <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773606932.jpg" alt="غراتان">
+                    <div class="image-wrapper">
+                        <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773606932.jpg" alt="غراتان">
+                        <div class="order-overlay"><button class="btn-order"><i class="fas fa-shopping-bag"></i> اطلب الآن</button></div>
+                    </div>
                     <div class="info">
                         <h4>🧀 غراتان البطاطس</h4>
                         <p>طبقات من البطاطس والجبن الكريمي مع لمسة من الثوم</p>
+                        <span class="price">1300 دج</span>
                     </div>
                 </div>
 
                 <!-- بطاقة السلطة -->
                 <div class="menu-card">
-                    <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773515881.jpg" alt="سلطة">
+                    <div class="image-wrapper">
+                        <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781773515881.jpg" alt="سلطة">
+                        <div class="order-overlay"><button class="btn-order"><i class="fas fa-shopping-bag"></i> اطلب الآن</button></div>
+                    </div>
                     <div class="info">
                         <h4>🥗 سلطة السيزر</h4>
                         <p>خضار طازجة مع صوص السيزر وقطع الدجاج المشوي</p>
+                        <span class="price">1100 دج</span>
                     </div>
                 </div>
 
                 <!-- بطاقة الطاكوس -->
                 <div class="menu-card">
-                    <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781772854373.jpg" alt="طاكوس">
+                    <div class="image-wrapper">
+                        <img src="https://github.com/olmo63085-coder/Menu/raw/f1b8840fd52803653338cdd36e6c7d3f85948b65/1781772854373.jpg" alt="طاكوس">
+                        <div class="order-overlay"><button class="btn-order"><i class="fas fa-shopping-bag"></i> اطلب الآن</button></div>
+                    </div>
                     <div class="info">
                         <h4>🌮 طاكوس اللحم</h4>
                         <p>طاكوس مكسيكي محشو باللحم المتبل والخضار الطازجة</p>
+                        <span class="price">1500 دج</span>
                     </div>
                 </div>
 
@@ -355,22 +448,22 @@
     </section>
 
     <!-- قسم اتصل بنا -->
-    <section id="contact" style="background: #0D1A0D;">
+    <section id="contact" style="background: #FCF8F2;">
         <div class="container">
             <h2 class="section-title">تواصل <span>معنا</span></h2>
-            <div class="contact-grid">
+            <div class="contact-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
                 <div class="contact-form">
-                    <input type="text" placeholder="الاسم الكامل">
-                    <input type="email" placeholder="البريد الإلكتروني">
-                    <input type="tel" placeholder="رقم الهاتف">
-                    <textarea placeholder="رسالتك"></textarea>
+                    <input type="text" placeholder="الاسم الكامل" style="width:100%; padding:14px 20px; margin-bottom:15px; border-radius:60px; border:1px solid #ddd; background:#fff;">
+                    <input type="email" placeholder="البريد الإلكتروني" style="width:100%; padding:14px 20px; margin-bottom:15px; border-radius:60px; border:1px solid #ddd; background:#fff;">
+                    <input type="tel" placeholder="رقم الهاتف" style="width:100%; padding:14px 20px; margin-bottom:15px; border-radius:60px; border:1px solid #ddd; background:#fff;">
+                    <textarea placeholder="رسالتك" style="width:100%; padding:14px 20px; margin-bottom:15px; border-radius:30px; border:1px solid #ddd; background:#fff; min-height:120px;"></textarea>
                     <button class="btn-gold">إرسال</button>
                 </div>
                 <div class="contact-info">
-                    <p><i class="fas fa-map-marker-alt"></i> شارع الذواقة، الجزائر العاصمة</p>
-                    <p><i class="fas fa-phone-alt"></i> 07.71.88.47.45</p>
-                    <p><i class="fas fa-envelope"></i> info@aldhawaka.dz</p>
-                    <p><i class="fas fa-clock"></i> السبت - الخميس: 12:00 - 23:00</p>
+                    <p><i class="fas fa-map-marker-alt" style="color:#B8860B; width:25px;"></i> شارع الذواقة، الجزائر العاصمة</p>
+                    <p><i class="fas fa-phone-alt" style="color:#B8860B; width:25px;"></i> 07.71.88.47.45</p>
+                    <p><i class="fas fa-envelope" style="color:#B8860B; width:25px;"></i> info@aldhawaka.dz</p>
+                    <p><i class="fas fa-clock" style="color:#B8860B; width:25px;"></i> السبت - الخميس: 12:00 - 23:00</p>
                 </div>
             </div>
         </div>
@@ -387,9 +480,42 @@
     </footer>
 
     <script>
+        // قائمة التنقل
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
         menuBtn.addEventListener('click', () => navLinks.classList.toggle('show'));
+
+        // عدادات تفاعلية (تظهر عند التمرير)
+        const statNumbers = document.querySelectorAll('.stat-number');
+        const targets = [3200, 150, 12, 8];
+        let animated = false;
+
+        function animateStats() {
+            if (animated) return;
+            animated = true;
+            statNumbers.forEach((el, idx) => {
+                let current = 0;
+                const target = targets[idx];
+                const increment = target / 80;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        el.innerText = target;
+                        clearInterval(timer);
+                    } else {
+                        el.innerText = Math.floor(current);
+                    }
+                }, 25);
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            const statsSection = document.querySelector('.stats-section');
+            const rect = statsSection.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100 && !animated) {
+                animateStats();
+            }
+        });
     </script>
 </body>
 </html>
